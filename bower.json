@@ -1,11 +1,11 @@
 {
-  "name": "mean-template",
+  "name": "quik-task",
   "version": "0.0.0",
-  "homepage": "https://github.com/chyld/mean-template",
+  "homepage": "https://github.com/mikebbarreiro/quik-task",
   "authors": [
-    "Chyld Medford <chyld.medford@gmail.com>"
+    "Michael Barreiro <mikebbarreiro@yahoo.com>"
   ],
-  "description": "The MEAN Template",
+  "description": "a To-do list",
   "license": "MIT",
   "dependencies": {
     "angular": "1.3.0-rc.0",
