@@ -1,0 +1,35 @@
+h1 Tasks
+
+.row
+  .col-xs-4
+    form(role='form', name='taskForm', novalidate)
+      .form-group
+        label(for='name') Name
+        input.form-control#name( ng-model='task.name' ,required, ng-minlength='3', type='text', name='name', autofocus=true)
+      .form-group
+        label(for='due') Due Date
+        input.form-control#cash(ng-model='task.due', required, type='date', name='due')
+      .form-group
+        label(for='priority')
+        select.form-control(name='priority', ng-model='task.priority', required) Priortiy Lvl
+          option Easy
+          option Medium
+          option Hard
+      button.btn.btn-primary(type='submit', ng-show='taskForm.$valid', ng-click='add()') Add Task
+    .col-xs-8
+.row
+  .col-xs-3
+    .panel.panel-default
+      .panel-body
+        table.table.table-bordered.table-hover
+          thead
+            th Name
+            th Due Date
+            th Priority Lvl
+          tbody
+            tr(ng-repeat='t in tasks')
+              td {{t.name}}
+              td {{t.due}}
+              td {{t.priority}}
+
+pre {{ task | json }}

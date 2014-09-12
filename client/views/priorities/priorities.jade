@@ -1,0 +1,36 @@
+h1 Priorities
+
+.row
+  .col-xs-4
+    form(role='form', name='priorityForm', novalidate)
+      .form-group
+        label(for='name') Name
+        input.form-control#name(ng-model='priority.name' ,required, ng-minlength='3', type='text', name='name', autofocus=true)
+      .form-group
+        label(for='color') Select a Color
+        input.form-control#cash(ng-model='priority.color', required, type='color', name='color')
+      button.btn.btn-primary(type='submit', ng-show='priorityForm.$valid', ng-click='add()') Add Priority
+    .col-xs-8
+.row
+  .col-xs-3
+    .panel.panel-default
+      .panel-body
+
+        .radio
+          label
+            input(name='sort', type='radio', ng-model='sort', value='name')
+            span Ascending
+        .radio
+          label
+            input(name='sort', type='radio', ng-model='sort', value='-name')
+            span Descending
+        table.table.table-hover.table-bordered
+          thead
+            tr
+              th Name
+              th color
+          tbody
+            //orderBy:"name" (now its sort, before was name) puts the names in Alphabetical order, you czn also rever by doing -name
+            tr(ng-repeat='p in priorities | orderBy:"sort"', ng-style='{"background-color":p.color}')
+              td {{p.name}}
+              td {{p.color}}
